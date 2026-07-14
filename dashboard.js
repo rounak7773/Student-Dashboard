@@ -464,21 +464,7 @@ clearExpense.addEventListener("click", function () {
     updateDashboardStats();
 
 });
-// clearExpense.addEventListener("click", function () {
 
-//     alert("Button Clicked");
-
-//     expenses = [];
-
-//     localStorage.removeItem("expenses");
-
-//     expenseList.innerHTML = "";
-
-//     updateExpenseTotal();
-
-//     updateDashboardStats();
-
-// });
 const checkExam = document.getElementById("checkExam");
 
 let examTimer;
@@ -900,7 +886,6 @@ showTodayTimetable();
 const saveEvent = document.getElementById("saveEvent");
 
 saveEvent.addEventListener("click", function () {
-    // console.log("Button Clicked");
     alert("Button Working");
 
     const eventDate =
@@ -1026,6 +1011,40 @@ if (editProfile) {
 
     });
 }
+    const imageUpload = document.getElementById("imageUpload");
+const profileImage = document.getElementById("profileImage");
+
+// Page load hone par image load hogi
+const savedImage = localStorage.getItem("profileImage");
+
+if(savedImage){
+    profileImage.src = savedImage;
+}
+
+imageUpload.addEventListener("change", function(){
+
+    const file = this.files[0];
+
+    if(!file){
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+        profileImage.src = e.target.result;
+
+        localStorage.setItem(
+            "profileImage",
+            e.target.result
+        );
+
+    };
+
+    reader.readAsDataURL(file);
+
+});
 
 const savedName = localStorage.getItem("studentName");
 const savedCourse = localStorage.getItem("studentCourse");
