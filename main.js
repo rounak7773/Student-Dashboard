@@ -60,9 +60,6 @@ register.addEventListener("submit", function (e) {
     registerForm.style.display = "none";
     loginForm.style.display = "block";
 
-
-
-
 })
 
 const login = document.getElementById("login");
